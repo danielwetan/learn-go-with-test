@@ -9,8 +9,6 @@ func compareTheTriplets(a, b []int32) []int32 {
 			alice++
 		} else if a[i] < b[i] {
 			bob++
-		} else {
-			continue
 		}
 	}
 
