@@ -1,9 +1,7 @@
 package challenges
 
 func diagonalDifference(arr [][]int) int {
-	left := 0
-	right := 0
-	counter := 0
+	var left, right, counter int
 
 	for i := 0; i < len(arr); i++ {
 		left += arr[i][counter]
