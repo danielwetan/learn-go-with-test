@@ -1,6 +1,8 @@
 package challenges
 
-import "strings"
+import (
+	"strings"
+)
 
 /*
 
@@ -17,18 +19,11 @@ output: 1
 
 func tooManyTabs(arr []string) int {
 	m := make(map[string]string)
-	counter := 0
 
 	for _, domain := range arr {
 		cleanDomain := strings.Split(domain, "/")[0]
-
-		_, isFound := m[cleanDomain]
-		if !isFound {
-			m[cleanDomain] = cleanDomain
-			counter++
-		}
-
+		m[cleanDomain] = cleanDomain
 	}
 
-	return counter
+	return len(m)
 }
