@@ -1,9 +1,5 @@
 package challenges
 
-import (
-	"sort"
-)
-
 /*
 Cari bilangan positif terkecil yg tidak ada dalam array
 
@@ -12,7 +8,7 @@ output: 6
 */
 
 func smallestIntNotPresent(arr []int) int {
-	sort.Ints(arr)
+	arr = sorting(arr)
 
 	for i := 0; i < len(arr); i++ {
 		if arr[i]+1 != arr[i+1] {
@@ -23,3 +19,23 @@ func smallestIntNotPresent(arr []int) int {
 	return 0
 }
 
+func sorting(arr []int) []int {
+	noSwap := true
+
+	for i := len(arr); i > 0; i-- {
+		noSwap = true
+
+		for j := 0; j < i-1; j++ {
+			if arr[j] > arr[j+1] {
+				temp := arr[j]
+				arr[j] = arr[j+1]
+				arr[j+1] = temp
+				noSwap = false
+			}
+		}
+
+		if noSwap { break }
+	}
+
+	return arr
+}
