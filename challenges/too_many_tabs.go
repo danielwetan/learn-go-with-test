@@ -1,5 +1,7 @@
 package challenges
 
+import "strings"
+
 /*
 
 Kelompokan domain yang sama menjadi satu tabs,
@@ -18,14 +20,7 @@ func tooManyTabs(arr []string) int {
 	counter := 0
 
 	for _, domain := range arr {
-
-		cleanDomain := ""
-		for _, char := range domain {
-			if string(char) == "/" {
-				break
-			}
-			cleanDomain += string(char)
-		}
+		cleanDomain := strings.Split(domain, "/")[0]
 
 		_, isFound := m[cleanDomain]
 		if !isFound {
